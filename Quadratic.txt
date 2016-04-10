@@ -1,0 +1,37 @@
+/*
+ * Author: Caleb A. Payton
+ * Simple program to perform the quadratic formula given integers a, b, and c.
+ * Roots are rounded to three decimal places.
+ */
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class Quadratic {
+	public static void main(String[] args) {
+		int a, b, c;
+		double discriminant, root1, root2;
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("This is a program to perform the quadratic formula and return 2 roots");
+		System.out.print("\nPlease enter the integer a: ");
+		a = sc.nextInt();
+		System.out.print("Please enter the integer b: ");
+		b = sc.nextInt();
+		System.out.print("Please enter the integer c: ");
+		c = sc.nextInt();
+
+		discriminant = Math.pow(b, 2) - 4 * a * c;
+
+		if (discriminant < 0) {
+			System.out.println("Discriminant is negative. No roots available.");
+			System.out.print("Discriminant = " + discriminant);
+		} else {
+			root1 = (-b + Math.sqrt(discriminant)) / 2 * a;
+			root2 = (-b - Math.sqrt(discriminant)) / 2 * a;
+			DecimalFormat dfm = new DecimalFormat("0.###");
+			System.out.print("Root 1 = " + dfm.format(root1) + "\nRoot 2 = " + dfm.format(root2));
+		}
+	}
+}
